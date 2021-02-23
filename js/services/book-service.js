@@ -448,15 +448,18 @@ const BOOKS_KEY = 'booksDB'
 // console.log('books:', bookss)
 
 
-import { storageService } from './async-storage-service.js'
+import { storageService } from './async-storage.service.js'
 import { utilService } from './util-service.js'
+import { searhService } from './search.service.js'
 
 
 export const bookService = {
     query,
     getById,
     addReview,
-    removeRewiew
+    removeRewiew,
+    searchBook,
+    addBook
 }
 
 
@@ -467,7 +470,7 @@ function query() {
                 utilService.saveToStorage(BOOKS_KEY, gBooks)
                 books = gBooks;
             }
-            return books; 
+            return books;
         })
 }
 
@@ -494,4 +497,39 @@ function removeRewiew(bookId, reviewId) {
             storageService.put(BOOKS_KEY, book)
             return book
         })
+}
+
+function searchBook(bookName) {
+    return searhService.getBooksByName(bookName)
+        .then(books => {
+            // console.log('books in book-service:', books)
+            return books
+        })
+}
+
+function addBook(book) {
+    console.log('book:', book)
+    const newBook = {
+        // "id": utilService.makeId(6),
+        "title": book.title,
+        "subtitle": book.title,
+        "authors": book.authors,
+        "publishedDate": book.publishedDate,
+        "description": book.description,
+        "pageCount": book.pageCount,
+        "categories": book.categories,
+        "thumbnail": book.imageLinks.thumbnail,
+        "language": book.language,
+        "listPrice": {
+            "amount": 100,
+            "currencyCode": "EUR",
+            "isOnSale": false
+        }
+    }
+    return storageService.post(BOOKS_KEY, newBook)
+        .then(book => {
+            // console.log('book:', book)
+            return book
+        })
+
 }

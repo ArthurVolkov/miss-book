@@ -1,6 +1,6 @@
 import { bookService } from '../services/book-service.js'
 import reviewAdd from '../comps/review-add.cmp.js'
-import { eventBus } from '../services/event-bus-service.js'
+import { eventBus } from '../services/event-bus.service.js'
 
 
 export default {

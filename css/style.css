@@ -124,12 +124,47 @@ a {
 }
 
 
+/* BOOK-SEARCH */
+
+.book-search {
+    position: absolute;
+    top: 90px;
+    background-color: lightyellow;
+    opacity: .8;
+    width: 100%;
+    min-height: 30px;
+    font-size: 1.3em;
+    font-weight: 600;
+    border-top: 2px solid darkred;
+}
+
+/* BOOK-SEARCH-RES */
+
+.book-search-res {
+    position: absolute;
+    top: 120px;
+    padding: 10px 30px 10px 10px;
+    background-color: darkred;
+    color: azure;
+    min-width: 300px;
+    z-index: 30;
+}
+
+.book-search-res li {
+    margin: 5px;
+}
+
+.book-search-res .close-btn {
+    position: absolute;
+    top: 0;
+    right: 0;
+}
 
 /* BOOK-LIST */
 
 .book-app .book-list {
     /* background-color: lightskyblue; */
-    margin-top: 30px;
+    margin-top: 70px;
     margin-bottom: 30px;
     min-height: 70vh;
     width: 100%;
