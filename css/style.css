@@ -1,0 +1,439 @@
+/* MAIN */
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    height: 100vh;
+    user-select: none;
+}
+
+h1 {
+    margin: 0;
+}
+
+button {
+    cursor: pointer;
+}
+
+textarea {
+    resize: none;
+}
+
+a {
+    color: azure;
+    text-decoration: none;
+}
+
+/* PAGES-------------------------------------------------------------- */
+
+/* BOOK-APP PAGE****************************************** */
+
+/* LAYOUT */
+
+.main-container {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+/* COMPONENTS */
+
+/* MAIN-HEADER */
+
+/* ....................................................... */
+
+.main-header {
+    position: fixed;
+    top: 0;
+    background-color: firebrick;
+    color: azure;
+    font-size: 1.5em;
+    height: 60px;
+    width: 100%;
+    z-index: 10;
+}
+
+.header {
+    flex-grow: 1;
+    padding: 0 10px;
+}
+
+.nav-bar li {
+    margin: 0 10px;
+}
+
+/* BOOK-APP */
+/* ........................................................ */
+
+.book-app {
+    /* margin-top: 50px; */
+    padding: 10px 0;
+    padding-top: 60px;
+    background-image: url(../images/backgrond.jpg);
+    background-attachment: fixed;
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    min-height: 100vh;
+}
+
+.modal-screen.open-modal {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: gray;
+    opacity: .7;
+    z-index: 15;
+}
+
+
+/* BOOK_FILTER */
+
+.book-filter {
+    position: absolute;
+    top: 60px;
+    background-color: lightyellow;
+    opacity: .8;
+    width: 100%;
+    min-height: 30px;
+    font-size: 1.3em;
+    font-weight: 600;
+}
+
+.filter-form {
+    width: 100%;
+    padding: 0 10px;
+}
+
+.book-filter input {
+    background-color: transparent;
+    margin: 0 10px;
+    border-radius: 5px;
+    border: 1px solid black;
+    outline: none;
+    font-weight: 500;
+}
+
+.book-filter button {
+    outline: none;
+    border: 1px solid black;
+    border-radius: 5px;
+}
+
+
+
+/* BOOK-LIST */
+
+.book-app .book-list {
+    /* background-color: lightskyblue; */
+    margin-top: 30px;
+    margin-bottom: 30px;
+    min-height: 70vh;
+    width: 100%;
+
+    display: grid;
+    gap: .5rem;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    grid-auto-rows: minmax(120px);
+}
+
+/* BOOK-PREWIEW */
+
+.book-preview {
+    background-color: darkred;
+    opacity: .7;
+    margin: 10px;
+    padding: 10px;
+    /* width: 240px; */
+    height: 120px;
+    /* flex-grow: 1; */
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.book-preview .image-container {
+    width: 75px;
+    height: 100px;
+}
+
+.book-preview img {
+    width: 100%;
+    height: 100%;
+}
+
+.book-preview .info-container {
+    background-color: firebrick;
+    flex-grow: 1;
+    padding-left: 10px;
+    color: azure;
+}
+
+.book-preview p {
+    overflow: hidden;
+    text-align: center;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    padding-right: 10px;
+    max-width: 135px;
+    text-transform: capitalize;
+}
+
+
+/* BOOK-DETAILS */
+
+.book-details {
+    background-image: url(../images/backgrond.jpg);
+    background-attachment: fixed;
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    opacity: .8;
+    /* position: fixed; */
+    /* top: 100px; */
+    /* padding-top: 60px;
+    padding-bottom: 40px; */
+    padding: 60px 10px 40px 10px;
+    background-color: rgb(136, 54, 54);
+    color: azure;
+    /* width: 770px;
+    height: 420px; */
+    height: 100vh;
+    /* padding: 10px; */
+    /* border-radius: 5px; */
+    z-index: 20;
+}
+
+.book-details-container {
+    height: 100vh;
+}
+
+.book-details img {
+    border-radius: 5px;
+}
+
+.book-details .info-container {
+    padding: 0 10px 10px 20px;
+    /* margin-bottom: 100px; */
+    /* margin-top: 60px; */
+    overflow: auto;
+    height: 400px;
+}
+
+.book-details p {
+    margin: 5px 10px;
+    padding: 0;
+    text-align: center;
+}
+
+.book-details p::first-letter {
+    text-transform: capitalize;
+}
+
+.book-details .book-title {
+    text-transform: capitalize;
+    font-size: 2em;
+    font-weight: 800;
+}
+
+.book-details .book-subtitle {
+    font-size: 1.2em;
+    font-weight: 600;
+}
+
+.book-details .description-continer {
+    min-height: 6em;
+    overflow: auto;
+    padding: 5px;
+}
+
+.book-details .read-more {
+    align-self: center;
+    background-color: transparent;
+    color: azure;
+    border: none;
+    font-style: italic;
+}
+
+.price-container {
+    font-size: 1.5em;
+    font-weight: 700;
+}
+
+.high-price {
+    color: red;
+}
+
+.low-price {
+    color: green;
+}
+
+.info-container .review-container {
+    background-color: darkred;
+    opacity: .7;
+    border-radius: 5px;
+    width: 100%;
+    margin: 10px;
+}
+
+.review-container li {
+    position: relative;
+}
+
+.review-container button {
+    position: absolute;
+    right: 0;
+    top: -5px;
+    border-radius: 5px;
+    border: none;
+}
+
+.review-container li:not(:last-child){
+    border-bottom: 1px dashed green;
+}
+
+.close-btn {
+    position: absolute;
+    right: 0;
+    top: 60px;
+    background-color: transparent;
+    border: none;
+    font-size: 1.5em;
+    color: azure;
+}
+
+/* REVIEW-ADD */
+
+
+.review-add {
+    background-color: darkred;
+    opacity: .7;
+    /* width: 300px; */
+    /* height: 200px; */
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.review-add form {
+    flex-grow: 1;
+}
+
+.review-add textarea {
+    width: 100%;
+}
+
+.star {
+    cursor: pointer;
+    margin: 5px 0;
+}
+
+.review-add button {
+    /* border: none; */
+    outline: none;
+    /* border-radius: 5px; */
+}
+
+/* USER-MSG */
+
+.user-msg {
+    position: fixed;
+    top: 5px;
+    right: 5px;
+    height: 50px;
+    z-index: 50;
+    padding-left: 10px;
+    border-radius: 5px;
+    font-size: 1.3em;
+}
+
+.user-msg button {
+    background-color: transparent;
+    border: none;
+    outline: none;
+    font-size: 1.3em;
+}
+
+.user-msg.success {
+    background-color: greenyellow;
+}
+
+.user-msg.error {
+    background-color: red;
+}
+
+/* .............................................................. */
+/* MAIN-FOOTER */
+
+.main-footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background-color: darkred;
+    color: azure;
+    height: 40px;
+}
+
+/* ................................................................. */
+
+/* ****************************************************************** */
+
+/* HOME PAGE */
+
+.home-page {
+    padding: 10px 0;
+    background-image: url(../images/backgrond.jpg);
+    background-attachment: fixed;
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    min-height: 100vh;
+    color: azure;
+    font-size: 3em;
+    font-style: italic;
+}
+
+/* ABOUT-PAGE */
+
+.about-page {
+    background-image: url(../images/backgrond.jpg);
+    background-attachment: fixed;
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    min-height: 100vh;
+    color: azure;
+    font-size: 3em;
+    font-style: italic;
+}
+
+/* HELPERS */
+
+.flex {
+    display: flex;
+}
+
+.flex-col {
+    flex-direction: column;
+}
+
+.justify-center {
+    justify-content: center;
+}
+
+.justify-around {
+    justify-content: space-around;
+}
+
+.justify-between {
+    justify-content: space-between;
+}
+
+.align-center {
+    align-items: center;
+}
+
+.clean-list {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+}
