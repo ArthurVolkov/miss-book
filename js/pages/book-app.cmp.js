@@ -36,18 +36,17 @@ export default {
             this.selectedBook = null,
                 this.$emit('toggleModal', false)
         },
-        searchBook(ev) {
-            bookService.searchBook(ev)
-                .then(res => {
-                    // console.log('res:', res)
-                    this.searchedBooks = res
+        searchBook(title) {
+            bookService.searchBook(title)
+                .then(searchedBooks => {
+                    this.searchedBooks = searchedBooks
                 })
         },
         closeModal() {
             this.searchedBooks = null
         },
         addBook(book) {
-            bookService.addBook(book)
+            bookService.addGoogleBook(book)
                 .then(() => this.loadBooks())
                 .catch(err => console.log('ERROR: ', err))
         }

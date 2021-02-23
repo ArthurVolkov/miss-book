@@ -225,18 +225,10 @@ a {
     background-size: 100% 100%;
     background-repeat: no-repeat;
     opacity: .8;
-    /* position: fixed; */
-    /* top: 100px; */
-    /* padding-top: 60px;
-    padding-bottom: 40px; */
     padding: 60px 10px 40px 10px;
     background-color: rgb(136, 54, 54);
     color: azure;
-    /* width: 770px;
-    height: 420px; */
     height: 100vh;
-    /* padding: 10px; */
-    /* border-radius: 5px; */
     z-index: 20;
 }
 
@@ -244,14 +236,20 @@ a {
     height: 100vh;
 }
 
+.book-details .image-container {
+    min-width: 300px;
+    height: 400px;
+}
+
 .book-details img {
     border-radius: 5px;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
 
 .book-details .info-container {
     padding: 0 10px 10px 20px;
-    /* margin-bottom: 100px; */
-    /* margin-top: 60px; */
     overflow: auto;
     height: 400px;
 }
@@ -336,6 +334,10 @@ a {
     border: none;
     font-size: 1.5em;
     color: azure;
+}
+
+.router-link-container {
+    width: 100%;
 }
 
 /* REVIEW-ADD */

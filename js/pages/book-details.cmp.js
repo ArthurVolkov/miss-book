@@ -12,6 +12,10 @@ export default {
                 <img :src="book.thumbnail" alt="book photo"/>
             </div>
             <div class="info-container flex flex-col justify-between align-center">
+                <div class="router-link-container flex justify-between">
+                    <router-link :to="prevBookLink">Prev book</router-link>
+                    <router-link :to="nextBookLink">Next book</router-link>
+                </div>
                 <p class="book-title">{{book.title}}</p>
                 <p class="book-subtitle">{{book.subtitle}}</p>
                 <p>Autors: {{book.authors.join('')}}</p>
@@ -42,6 +46,8 @@ export default {
         return {
             book: null,
             isMore: false,
+            prevBookId: 'JYOJa2NpSCq',
+            nextBookId: 'JYOJa2NpSCq'
         }
     },
     methods: {
@@ -85,7 +91,19 @@ export default {
                     }
                     eventBus.$emit('show-msg', msg)
                 })
-
+        },
+        loadBook() {
+            const id = this.$route.params.bookId
+            bookService.getById(id)
+                .then(book => {
+                    this.book = book
+                    bookService.getNextBooksId(book.id)
+                        .then(ids => {
+                            this.prevBookId = ids.prev
+                            this.nextBookId = ids.next
+                            // console.log('IDX', idx)
+                        })
+                })
         }
     },
     computed: {
@@ -125,12 +143,21 @@ export default {
         },
         readMoreBtnTxt() {
             return this.isMore ? 'read less...' : 'read more...'
+        },
+        prevBookLink() {
+            return '/book/' + this.prevBookId
+        },
+        nextBookLink() {
+            return '/book/' + this.nextBookId
+        }
+    },
+    watch: {
+        '$route.params.bookId'(id) {
+            this.loadBook()
         }
     },
     created() {
-        const id = this.$route.params.bookId
-        bookService.getById(id)
-            .then(book => this.book = book)
+        this.loadBook()
     },
     components: {
         reviewAdd

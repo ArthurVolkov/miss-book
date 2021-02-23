@@ -459,7 +459,8 @@ export const bookService = {
     addReview,
     removeRewiew,
     searchBook,
-    addBook
+    addGoogleBook,
+    getNextBooksId
 }
 
 
@@ -502,15 +503,13 @@ function removeRewiew(bookId, reviewId) {
 function searchBook(bookName) {
     return searhService.getBooksByName(bookName)
         .then(books => {
-            // console.log('books in book-service:', books)
             return books
         })
 }
 
-function addBook(book) {
+function addGoogleBook(book) {
     console.log('book:', book)
     const newBook = {
-        // "id": utilService.makeId(6),
         "title": book.title,
         "subtitle": book.title,
         "authors": book.authors,
@@ -531,5 +530,22 @@ function addBook(book) {
             // console.log('book:', book)
             return book
         })
+}
 
+
+function getNextBooksId(id) {
+    return query()
+        .then(books => {
+            const idx = books.findIndex(book => {
+                // console.log('books:', books)
+                // console.log('id:', id)
+                return book.id === id
+            })
+            // console.log('idx:', idx)
+            const nextBookId = (books[idx + 1]) ? books[idx + 1].id : books[idx].id
+            const prevBookId = (books[idx - 1]) ? books[idx - 1].id : books[idx].id
+
+
+            return {next: nextBookId, prev: prevBookId}
+        })
 }
