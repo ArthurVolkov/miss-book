@@ -138,6 +138,17 @@ a {
     border-top: 2px solid darkred;
 }
 
+.book-search h4 {
+    margin: 3px 10px;
+}
+
+.book-search input {
+    border-radius: 5px;
+    border: 1px solid darkred;
+    font-size: .8em;
+    outline: none;
+}
+
 /* BOOK-SEARCH-RES */
 
 .book-search-res {
