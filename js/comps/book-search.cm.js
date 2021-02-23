@@ -1,7 +1,7 @@
 export default {
     template: `
     <section class="book-search flex justify-center align-center">
-        <h4>search in google: </h4>
+        <h4>Search in google: </h4>
         <form @submit.prevent="search">
             <input v-model="bookName" type="search">
 
